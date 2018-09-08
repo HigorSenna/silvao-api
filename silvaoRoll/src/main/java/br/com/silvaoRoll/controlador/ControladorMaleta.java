@@ -4,11 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.silvaoRoll.entidade.Maleta;
+import br.com.silvaoRoll.dto.MaletaDTO;
 import br.com.silvaoRoll.servico.ServicoMaleta;
 
 @RestController
@@ -18,13 +19,13 @@ public class ControladorMaleta {
 	@Autowired
 	private ServicoMaleta servicoMaleta;
 	
-	@GetMapping
-	public List<Maleta> buscar() {
-		return servicoMaleta.buscar();
+	@PostMapping
+	public void salvar(@RequestBody List<MaletaDTO> maletasCadastrar) {
+		servicoMaleta.salvar(maletasCadastrar);
 	}
 	
-	@GetMapping("/{id}")
-	public Maleta buscar(@PathVariable("id") Integer id) {
-		return servicoMaleta.buscar(id);
+	@GetMapping
+	public List<MaletaDTO> buscar() {
+		return servicoMaleta.buscar();
 	}
 }

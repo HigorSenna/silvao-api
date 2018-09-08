@@ -1,22 +1,26 @@
 package br.com.silvaoRoll.entidade;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name="maletas")
+@Entity
 public class Maleta implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	//muitos premios para uma maleta
-	private List<Premio> premios;
 	
-	public Maleta() {
-		if(this.premios == null) {
-			this.premios = new ArrayList<>();
-		}
-	}
+	@Column(name="caminho_imagem")
+	private String caminhoImagem;
 	
 	public Integer getId() {
 		return id;
@@ -24,10 +28,10 @@ public class Maleta implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public List<Premio> getPremios() {
-		return premios;
+	public String getCaminhoImagem() {
+		return caminhoImagem;
 	}
-	public void setPremios(List<Premio> premios) {
-		this.premios = premios;
+	public void setCaminhoImagem(String caminhoImagem) {
+		this.caminhoImagem = caminhoImagem;
 	}
 }
