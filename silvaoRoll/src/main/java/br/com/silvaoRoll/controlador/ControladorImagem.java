@@ -17,7 +17,7 @@ public class ControladorImagem {
 	private ServicoImagem servicoImagem;
 	
 	@PostMapping
-    public void save(@RequestParam(value = "image", required = false) MultipartFile file) {
+    public void save(@RequestParam(value = "imagem", required = false) MultipartFile file) {
 		servicoImagem.salvar(file);
     }
 }

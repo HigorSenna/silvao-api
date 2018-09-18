@@ -13,6 +13,6 @@ import br.com.silvaoRoll.entidade.Maleta;
 public interface RepositorioMaleta extends JpaRepository<Maleta, Integer> {
 	
 	
-	@Query("SELECT new br.com.silvaoRoll.dto.MaletaDTO(maleta.id) FROM Maleta maleta ")
+	@Query("SELECT new br.com.silvaoRoll.dto.MaletaDTO(maleta.id, maleta.caminhoImagem) FROM Maleta maleta")
 	List<MaletaDTO> buscar();
 }
