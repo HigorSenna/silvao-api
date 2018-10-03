@@ -34,8 +34,9 @@ public class ServicoPremio {
 	}
 	
 	public void vincular(List<PremioDTO> premiosDTO) {
-		Collections.shuffle(premiosDTO);
 		List<Maleta> maletas = servicoMaleta.buscarMaletasEntidade();
+		Collections.shuffle(premiosDTO);
+		Collections.shuffle(maletas);
 		if(maletas.size() <= premiosDTO.size()) {
 			for(int i= 0; i < maletas.size(); i++) {
 				realizarVinculo(premiosDTO, maletas, i);
@@ -51,14 +52,8 @@ public class ServicoPremio {
 	private void realizarVinculo(List<PremioDTO> premiosDTO, List<Maleta> maletas, int i) {
 		Integer idPremio = premiosDTO.get(i).getId();
 		Premio premio = this.repositorioPremio.findById(idPremio).get();
-		if(premio.getMaleta() == null) {
-			premio.setMaleta(maletas.get(i));
-			this.repositorioPremio.save(premio);
-		} 
-		else {
-			premio.setMaleta(null);
-			this.repositorioPremio.save(premio);
-		}
+		premio.setMaleta(maletas.get(i));
+		this.repositorioPremio.save(premio);
 	}
 	
 	public PremioDTO buscarPorMaleta(Integer idMaleta) {
