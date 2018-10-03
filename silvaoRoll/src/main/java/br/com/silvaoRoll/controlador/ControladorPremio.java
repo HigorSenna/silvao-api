@@ -40,4 +40,9 @@ public class ControladorPremio {
 	public void vincularPremios(@RequestBody List<PremioDTO> premios) {
 		this.servicoPremio.vincular(premios);
 	}
+	
+	@GetMapping("/{idMaleta}/maleta")
+	public PremioDTO buscarPorMaleta(@PathVariable("idMaleta") Integer idMaleta) {
+		return this.servicoPremio.buscarPorMaleta(idMaleta);
+	}
 }

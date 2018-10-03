@@ -2,6 +2,7 @@ package br.com.silvaoRoll.entidade;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,7 +24,7 @@ public class Maleta implements Serializable {
 	@Column(name="caminho_imagem")
 	private String caminhoImagem;
 	
-	@OneToOne(mappedBy = "maleta")
+	@OneToOne(mappedBy = "maleta", cascade = CascadeType.MERGE)
 	private Premio premio;
 	
 	public Integer getId() {
@@ -37,5 +38,11 @@ public class Maleta implements Serializable {
 	}
 	public void setCaminhoImagem(String caminhoImagem) {
 		this.caminhoImagem = caminhoImagem;
+	}
+	public Premio getPremio() {
+		return premio;
+	}
+	public void setPremio(Premio premio) {
+		this.premio = premio;
 	}
 }

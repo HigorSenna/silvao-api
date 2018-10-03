@@ -50,4 +50,13 @@ public class ServicoMaleta {
 	public List<Maleta> buscarMaletasEntidade() {
 		return this.repositorioMaleta.buscarMaletasEntidade();
 	}
+	
+	public void excluir(Integer id) {
+		Maleta maleta = this.repositorioMaleta.findById(id).get();
+		if(maleta.getPremio() != null) {
+			maleta.getPremio().setMaleta(null);
+			this.repositorioMaleta.saveAndFlush(maleta);
+		}
+		this.repositorioMaleta.deleteById(id);
+	}
 }

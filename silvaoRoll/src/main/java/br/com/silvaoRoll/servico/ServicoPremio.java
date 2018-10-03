@@ -60,4 +60,12 @@ public class ServicoPremio {
 			this.repositorioPremio.save(premio);
 		}
 	}
+	
+	public PremioDTO buscarPorMaleta(Integer idMaleta) {
+		PremioDTO premioDTO = this.repositorioPremio.buscarPorMaleta(idMaleta);
+		if(premioDTO == null) {
+			return new PremioDTO();
+		}
+		return premioDTO;
+	}
 }
