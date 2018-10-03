@@ -35,4 +35,9 @@ public class ControladorMaleta {
 	public void excluir(@PathVariable("id") Integer id) {
 		servicoMaleta.excluir(id);
 	}
+	
+	@PostMapping("/embaralhar")
+	public List<MaletaDTO> embaralhar(@RequestBody List<MaletaDTO> maletas) {
+		return this.servicoMaleta.embaralhar(maletas);
+	}
 }

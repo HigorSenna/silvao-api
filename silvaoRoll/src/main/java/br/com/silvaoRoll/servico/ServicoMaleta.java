@@ -1,6 +1,7 @@
 package br.com.silvaoRoll.servico;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,5 +59,10 @@ public class ServicoMaleta {
 			this.repositorioMaleta.saveAndFlush(maleta);
 		}
 		this.repositorioMaleta.deleteById(id);
+	}
+	
+	public List<MaletaDTO> embaralhar(List<MaletaDTO> maletas) {
+		Collections.shuffle(maletas);
+		return maletas;
 	}
 }
