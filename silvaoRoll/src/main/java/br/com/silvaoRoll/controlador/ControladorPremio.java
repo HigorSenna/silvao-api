@@ -35,4 +35,9 @@ public class ControladorPremio {
 	public void excluir(@PathVariable("id") Integer id) {
 		this.servicoPremio.excluir(id);
 	}
+	
+	@PostMapping("/vincular")
+	public void vincularPremios(@RequestBody List<PremioDTO> premios) {
+		this.servicoPremio.vincular(premios);
+	}
 }

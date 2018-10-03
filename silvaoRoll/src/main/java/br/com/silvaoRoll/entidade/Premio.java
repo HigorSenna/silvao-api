@@ -23,7 +23,7 @@ public class Premio implements Serializable {
 	private String descricao;
 	
     @JoinColumn(name="id_maleta", referencedColumnName="id")
-    @OneToOne(fetch = FetchType.LAZY, orphanRemoval = true)
+    @OneToOne(fetch = FetchType.LAZY)
 	private Maleta maleta;
     
     public Premio() {

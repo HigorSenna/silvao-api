@@ -46,4 +46,8 @@ public class ServicoMaleta {
 	public List<MaletaDTO> buscar() {
 		return repositorioMaleta.buscar();
 	}
+	
+	public List<Maleta> buscarMaletasEntidade() {
+		return this.repositorioMaleta.buscarMaletasEntidade();
+	}
 }
