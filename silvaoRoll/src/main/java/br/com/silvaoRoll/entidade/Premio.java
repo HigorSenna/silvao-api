@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Table(name="premios")
@@ -23,8 +23,15 @@ public class Premio implements Serializable {
 	private String descricao;
 	
     @JoinColumn(name="id_maleta", referencedColumnName="id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, orphanRemoval = true)
 	private Maleta maleta;
+    
+    public Premio() {
+	}
+	
+	public Premio(String descricao) {
+		this.descricao = descricao;
+	}
 	
 	public Integer getId() {
 		return id;
@@ -37,5 +44,13 @@ public class Premio implements Serializable {
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public Maleta getMaleta() {
+		return maleta;
+	}
+
+	public void setMaleta(Maleta maleta) {
+		this.maleta = maleta;
 	}
 }

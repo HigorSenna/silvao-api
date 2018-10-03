@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Table(name="maletas")
@@ -21,6 +22,9 @@ public class Maleta implements Serializable {
 	
 	@Column(name="caminho_imagem")
 	private String caminhoImagem;
+	
+	@OneToOne(mappedBy = "maleta")
+	private Premio premio;
 	
 	public Integer getId() {
 		return id;
