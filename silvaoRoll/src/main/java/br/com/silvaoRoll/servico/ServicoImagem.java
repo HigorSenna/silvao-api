@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class ServicoImagem {
 	
-	@Value("${url.salvar.imagem.teste}")
+	@Value("${url.salvar.imagem}")
 	private String urlSalvarImagem;
 
 	public void salvar(MultipartFile arquivoMultipart) {

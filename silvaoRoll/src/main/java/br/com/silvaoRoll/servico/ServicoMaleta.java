@@ -18,7 +18,7 @@ public class ServicoMaleta {
 	@Autowired
 	private RepositorioMaleta repositorioMaleta;
 	
-	@Value("${url.salvar.imagem.teste}")
+	@Value("${url.salvar.imagem}")
 	private String urlSalvarImagem;
 	
 	public void salvar(List<MaletaDTO> maletasCadastrar) {
